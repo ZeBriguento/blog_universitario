@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<title>Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/css/utilLogin.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/login.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title" style="background-image: url(/static/images/bg-01.jpg);">
+					<span class="login100-form-title-1">
+						Login
+					</span>
+				</div>
+
+				<form class="login100-form validate-form" id="formLogin" method="POST" action="/login/">
+					<div class="wrap-input100 validate-input m-b-26">
+						<span class="label-input100">Email</span>
+						<input class="input100" type="text" name="email" placeholder="Seu Email" required>
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-18">
+						<span class="label-input100">Palavra-Passe</span>
+						<input class="input100" type="password" name="palavra_passe" placeholder="Sua Palavra-Passe" required>
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="flex-sb-m w-full p-b-30">
+						<div class="contact100-form-checkbox">
+							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+							<label class="label-checkbox100" for="ckb1">
+								
+							</label>
+						</div>
+
+						<div>
+							<a href="/registrar" class="txt1">
+								Não tenho Registro?
+							</a>
+						</div>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Login
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+<!--===============================================================================================-->
+<script type="text/javascript" src="static/js/jquery.js"></script> 
+<script type="text/javascript" src="static/js/jquery.validate.js"></script>  
+
+	<script type="text/javascript">  
+
+		$(document).ready(function(){
+		
+		  $('#formLogin').validate({ 
+		
+			//regras e mensagens para os campos
+			  rules: {  
+				email: { required: true, minlength: 3, maxlength: 80 },  
+				palavra_passe: { required: true, minlength: 3 }
+				  
+				  
+			  },  
+			  messages: {  
+				email: { 
+						   required: 'Informe o seu email', 
+						   minlength: 'O email deve conter no mínimo 3 caracteres', 
+						   maxlength: 'O email deve conter no máximo 80 caracteres' 
+					  },  
+		
+				
+					  palavra_passe: { 
+						  required: 'Informe a sua palavra passe',
+						  minlength: 'A sua palavra passe deve conter no mínimo 3 caracteres'
+						}
+				  
+			  },
+		  
+		
+		  });  
+		});
+		
+		</script>
+
+</body>
+</html>

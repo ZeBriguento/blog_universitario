@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Universidade de Luanda</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/default.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/font-awesome.css">
+    
+  </head>
+  <body>
+    <header>
+      <h1 class="float-l">
+        <a href="/" title="Universidade de Luanda">Universidade de Luanda</a>
+      </h1>
+      
+      <input type="checkbox" id="control-nav" />
+      <label for="control-nav" class="control-nav"></label>
+      <label for="control-nav" class="control-nav-close"></label>
+
+      <nav class="float-r">
+        <ul class="list-auto">
+          <li>
+            <a href="/" title="Home">Home</a>
+          </li>
+          <li>
+            <a href="/about" title="About">Sobre Nós</a>
+          </li>
+          <li>
+            <a href="/blog" title="Blog">Blog</a>
+          </li>
+          <li>
+            <a href="/contactos" title="Contactos">Contactos</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <div>
+      {% block body %}
+      {% endblock %}
+    </div>
+  
+<footer id="rodape">
+
+  <div class="container">
+    <div class="row">
+        <div class="column column-12">
+              <div class="centro-footer">
+                    <h2>Siga nos</h2>
+                    <ul class="icon_list">
+                      <li><a href="#"><i class="fa fa-skype"></i></a></li>
+                  <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                  <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+                  <li><a href="#"><i class="fa fa-flickr"></i></a></li>
+                  <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                        <li><a href=""><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href=""><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+              </div>
+
+              <div class="copyright_text">
+                  <p>&copy; Universidade de Luanda. Todos direitos reservados por <a href="#" target="_blank">EP Rodrigues</a></p>
+              </div>
+          </div>      
+       </div>         
+    </div> 
+
+</footer>
+
+    </body>
+</html>

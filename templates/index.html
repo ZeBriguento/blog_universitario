@@ -1,0 +1,237 @@
+{% extends "layout.html" %}
+{% block body %}
+
+  <div class="fundo-area">
+      <div class="single-slider slider-height d-flex align-items-center justify-content-center" style="background-image: url(static/images/slider_bg_home01.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="column column-12">
+                    <div class="slider-content text-center">
+                        <h1 style="color: #fff; font-weight: 700;">Nenhuma nação pode  <br>Prosperar sem educação</h1>
+                        <p>Universidade de Luanda  </p>
+                        <a href="/contactos">   <button class="fundo-btn">Fale Conosco </button></a>
+                    </div>
+                </div>
+            </div>
+          </div>
+    </div>
+  </div>    
+
+
+  <!-- about start -->
+  <div id="about" class="about-area">
+    <div class="container">
+        <div class="row">
+            <div class="column column-7">
+                <div class="about-title-section">
+                    <h1>Bem Vindo a Universidade de Luanda</h1>
+                    <p> 
+                      Estimadas(os) Estudantes, Técnicas(os) e Professoras(os) da Universidade de Luanda,
+                      É com grande alegria que os recebemos para mais um período Académico. Desta vez, um tanto incomum. 
+                      Em tempos do chamado “novo normal”, nossas relações terão que encontrar sua nova normalidade. 
+                      Aulas à distância, comunicação por grupos de Whatsapp, 
+                      e-mails, plataformas diversas… tudo que nosso tempo tem a nos oferecer.
+
+                    </p>
+                    <p>
+                      Estamos à disposição para auxiliá-los em tudo que for necessário e 
+                      estiver ao nosso alcance. Desejamos um semestre com máximo proveito.
+                   </p>
+                   <a href="/inscrever"> <button class="theme-btn"><span class="btn-text">Inscreva-se agora</span></button></a>
+                </div>
+            </div>
+            <div class="column column-5">
+                <div class="about-right-img">
+                    <img src="static/images/about-right.png" alt="about-right">
+                </div>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 65px;">
+            <div class="column column-4">
+                <div class="feature-wrapper">
+                    <div class="feature-title-heading">
+                        <h3>Bolsa de Estudo</h3>
+                        <span>01</span>
+                    </div>
+                    <div class="feature-text">
+                        <p>Estudar na Universidade de Luanda os nossos Estudantes têm a oportunidade de concorrer
+                          a uma bolsa de estudo interna!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="column column-4">
+                <div class="feature-wrapper">
+                    <div class="feature-title-heading">
+                        <h3>Professores Competentes</h3>
+                        <span>02</span>
+                    </div>
+                    <div class="feature-text">
+                        <p>A Universidade de Luanda conta com um leque vasto de docentes competente na diversas
+                          áreas do saber!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="column column-4">
+                <div class="feature-wrapper">
+                    <div class="feature-title-heading">
+                        <h3>Actividades Desportivas</h3>
+                        <span>03</span>
+                    </div>
+                    <div class="feature-text">
+                        <p>A Universidade também possui actividades extra-curriculares e o desporto é 
+                          uma delas venha e inscreva-se já!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- about end -->
+
+
+<div id="courses" class="courses-area courses-bg-height" style="background-image: url(static/images/courses_bg.png);">
+  <div class="container">
+      <div class="row">
+
+        <div class="column column-12">
+          <div class="section-title text-center">
+              <div class="section-title-heading">
+                  <h1>Nossos Cursos</h1>
+              </div>
+              <div class="section-title-para">
+                  <p>Vem conhecer alguns dos nossos cursos
+                    e  <br> e encontre o curso que se encaixe no seu perfil
+                    </p>
+              </div>
+          </div>
+      </div>
+
+      
+
+
+        <div class="column column-12">
+
+          <div class="carousel">
+				
+            {% for row in list_curso %}   
+        <!-- Listing Item -->
+        <div class="carousel-item">
+					<div class="listing-item">
+
+						<a href="/cursos/ver_Curso/{{row[0]}}" class="listing-img-container">
+
+              <img class="" src="static/images/cursos/{{row[3]}}" alt="Card image cap" style="height: 200px;">
+
+						</a>
+						
+						<div class="listing-content">
+
+							<div class="listing-title">
+								<h4 style="text-align: center;"><a href="/cursos/ver_Curso/{{row[0]}}" style="text-decoration: none;" >{{row[2]}}</a></h4>
+							
+
+						</div>
+
+					</div>
+				</div>
+      </div>
+      {% endfor %}
+
+      	<!-- Listing Item / End -->
+
+
+
+		</div>
+		<!-- Carousel / End -->
+  </div>
+
+  </div>
+      </div>
+  </div>
+</div>     
+
+ <!-- counter start -->
+ <div class="counter-area">
+  <div class="container" style="padding-top: 90px; padding-bottom: 65px;">
+      <div class="row">
+          <div class="column column-3">
+              <div class="couter-wrapper text-center">
+                  <img src="static/images/counter/counter_icon1.png" alt="">
+                  <span class="counter">10532</span>
+                  <h3>Estudantes Satisfeitos</h3>
+              </div>
+          </div>
+          <div class="column column-3">
+              <div class="couter-wrapper text-center">
+                  <img src="static/images/counter/counter_icon2.png" alt="">
+                  <span class="counter">7985</span>
+                  <h3>Cursos Lecionados</h3>
+              </div>
+          </div>
+          <div class="column column-3">
+              <div class="couter-wrapper text-center">
+                  <img src="static/images/counter/counter_icon3.png" alt="">
+                  <span class="counter">5382</span>
+                  <h3>Estudantes Formados</h3>
+              </div>
+          </div>
+          <div class="column column-3">
+              <div class="couter-wrapper text-center">
+                  <img src="static/images/counter/counter_icon4.png" alt="">
+                  <span class="counter">354</span>
+                  <h3>Professores</h3>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- counter end -->
+
+<!-- brand start -->
+<div class="brand-area" style="padding-top: 80px; padding-bottom: 80px;">  
+  <div class="container">
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="brand-list">
+            <h1 style="padding-bottom: 80px;">Conheça os nossos parceiros</h1>
+              <div class="column column-3">
+                <img src="static/images/brand/brand1.png" alt="">
+              </div>
+
+              <div class="column column-3">
+                <img src="static/images/brand/brand2.png" alt="">
+              </div>
+
+              <div class="column column-3">
+                <img src="static/images/brand/brand3.png" alt="">
+              </div>
+
+              <div class="column column-3">
+                <img src="static/images/brand/brand4.png" alt="">
+              </div>
+         </div>     
+
+      </div>
+      
+      </div>
+  </div>
+</div>
+<!-- brand end -->
+
+<script type="text/javascript"  src="/static/plugins/owl-carousel/jquery-3.4.1.min.js"></script> 
+
+<script type="text/javascript"  src="/static/plugins/owl-carousel/jquery-migrate-3.1.0.min.js"></script> 
+
+<script type="text/javascript"  src="/static/plugins/owl-carousel/owl.carousel.min.js"></script> 
+
+<script type="text/javascript"  src="/static/plugins/owl-carousel/custom.js"></script> 
+
+<script type="text/javascript"  src="/static/plugins/owl-carousel/tooltips.min.js"></script> 
+
+<script type="text/javascript"  src="/static/plugins/owl-carousel/chosen.min.js"></script> 
+
+
+
+{% endblock %}

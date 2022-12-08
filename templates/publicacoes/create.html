@@ -1,0 +1,167 @@
+{% extends "layoutAdmin.html" %}
+{% block body %}
+
+	<section class="content">
+		<div class="container-fluid">
+		  <div class="row">
+			
+			
+			<!-- left column -->
+			<div class="col-md-12">
+			  <!-- jquery validation -->
+
+			  
+				{% with messages = get_flashed_messages()  %}
+				{% if messages %}
+				{% for message in messages %}
+				<div class="alert alert-success alert-dismissible fade show" role="alert">
+				  {{ message }}
+				  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				  </button>
+				</div>
+			
+				{% endfor %}
+				{% endif %}
+				{% endwith %}
+
+			  <div class="card card-primary">
+				<div class="card-header">
+				  <h3 class="card-title">Registrar <small>publicações</small></h3>
+				</div>
+
+				<form action="{{url_for('add_publicacoes')}}" method="POST" enctype="multipart/form-data">
+					<div class="card-body">
+
+						<div class="form-group">
+                            <label for="name">Categoria</label>
+                                <select class="form-control select2" style="width: 100%;" name="categoria" id="categoria">
+                                     <option value="" selected></option>
+                                     {% for row in list_publicacoes %}
+                                     <option value="{{row[0]}}">{{row[1]}}</option>
+                                         
+                                     {% endfor %}
+                                </select>
+
+                        </div><br />
+
+						<!-- <div class="form-group" >
+							<label for="name">Estado</label>&nbsp;&nbsp;
+							<input type="radio" name="estado" value="1" checked> N/Visível  &nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="radio" name="estado" value="0"> Visível
+						</div><br />-->
+					
+
+					  <div class="form-group">
+						<label for="titulo">Titulo</label>
+						<input type="text" name="titulo" class="form-control" id="titulo" placeholder="Titulo da publicação" required>
+					  </div><br />
+					  <div class="">
+						<label for="name">Descrição</label>
+						<textarea name="descricao" class="textarea" required
+						 style="width: 100%; height: 200px; font-size: 14px; line-height: 18px;
+						  border: 1px solid #dddddd; padding: 10px;"></textarea>
+						
+					</div><br />
+
+					<!--	<div class="form-group">
+						<label for="imagem">Imagem</label>
+						<input type="file" id="imagem" name="imagem"  class="form-control input-sm"  />
+						
+					</div> -->
+					<p>Imagem</p>
+					<div class="form-group">
+						 
+						{{ form.file  }}
+					</div><br />
+
+					<div class="form-group">
+						<label>Data da Publicação:</label>
+						 
+					     <input type="date" class="form-control"  name="data" />
+						
+				    </div><br />
+
+					<!-- /.card-body -->
+					<div class="card-footer">
+					  <button type="submit" class="btn btn-primary">Registrar</button>
+					</div>
+				  </form>
+
+			</div>
+		</div>
+		
+	</div>
+  </div>
+</section>
+	
+<!--===============================================================================================-->
+<script type="text/javascript" src="static/plugins/jquery/jquery.min.js"></script> 
+<script type="text/javascript" src="static/plugins/jquery-validation/jquery.validate.min.js"></script> 
+<script type="text/javascript" src="static/plugins/jquery-validation/additional-methods.min.js"></script>  
+
+
+	<script type="text/javascript">  
+
+		$(function () {
+			// Summernote
+			$('.textarea').summernote()
+		})
+
+		$(document).ready(function(){
+			$.validator.setDefaults({
+    submitHandler: function () {
+      alert( "Form successful submitted!" );
+    }
+  });
+		  $('#formRegistrar').validate({ 
+		
+			//regras e mensagens para os campos
+			  rules: {  
+				nome: { required: true, minlength: 3, maxlength: 80 },  
+				email: { required: true, email: true, maxlength: 100 },
+				palavra_passe: { required: true, minlength: 4 }
+				  
+				  
+			  },  
+			  messages: {  
+				nome: { 
+						   required: 'Informe o seu nome', 
+						   minlength: 'O Nome deve conter no mínimo 3 caracteres', 
+						   maxlength: 'O Nome deve conter no máximo 80 caracteres' 
+					  },  
+					  
+					email: { 
+                    required: 'Informe o seu email', 
+                    email: 'Ops, informe um email válido',
+                    maxlength: 'O Email deve conter no máximo 100 caracteres' 
+                },
+				
+				palavra_passe: { 
+						  required: 'Informe a sua palavra passe',
+						  minlength: 'A sua palavra passe deve conter no mínimo 4 caracteres'
+						}
+				  
+			  },
+		  
+			  
+			errorElement: 'span',
+			errorPlacement: function (error, element) {
+			error.addClass('invalid-feedback');
+			element.closest('.form-group').append(error);
+			},
+			highlight: function (element, errorClass, validClass) {
+			$(element).addClass('is-invalid');
+			},
+			unhighlight: function (element, errorClass, validClass) {
+			$(element).removeClass('is-invalid');
+			}
+			
+		  
+			  
+		  });  
+		});
+		
+		</script>
+
+{% endblock %}

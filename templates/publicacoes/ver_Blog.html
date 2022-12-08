@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+
+  
+<div class="blog-area">
+    
+        <div class="container">
+            <div class="row">
+                <div class="column column-7"> 
+
+                    <div id="container-noticia">
+                
+                    <div id="noticia-header">
+                        <h1> {{publicacao.titulo}} </h1>
+                        <img src="/static/images/blog/{{publicacao.imagem}}">
+                        <div class="esquerda"><strong>Fonte: </strong> Redação </div>
+                        <div class="direita"><strong>Data: </strong> {{publicacao.data}}  </div>
+                    </div>
+                
+                    <div id="conteudo-noticia">
+                
+                        {{publicacao.descricao | safe}}
+                
+                
+                    </div>
+                
+                     <div id="comentario">
+                         
+                        <ul class="share-buttons">
+                            <li><a class="fb-share" href="#"><i class="fa fa-facebook"></i> Partilha</a></li>
+                            <li><a class="twitter-share" href="#"><i class="fa fa-twitter"></i> Tweet</a></li>
+                            <li><a class="gplus-share" href="#"><i class="fa fa-google-plus"></i> Partilha</a></li>
+                            <li><a class="instagram-share" href="#"><i class="fa fa-instagram"></i> Partilha</a></li>
+                        </ul>
+
+                     </div>
+                
+                    </div>
+                
+                </div>
+                
+                <div class="column column-5">
+                    <section id="ultimas-noticias">
+                        <h1>Últimas Notícias</h1>
+                        <ul>
+                            {% for row in list_publicacao %}
+                        
+                            <li><a href="/publicacoes/ver_Blog/{{row[0]}} ">{{row[2]}}</a> </li>
+                        
+                            {% endfor %}
+                        </ul>
+                    </section>
+                </div>
+
+        </div>       
+    </div> 
+</div>
+    {% endblock %}

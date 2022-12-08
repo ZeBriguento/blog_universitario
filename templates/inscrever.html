@@ -1,0 +1,155 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<style>
+    .error{
+          color:red;
+    }
+</style>
+  <div class="fundo-area">
+      <div class="single-slider slider-height slider-height-breadcrumb d-flex align-items-center justify-content-center" style="background-image: url(static/images/cursos/cursoFundo.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="column column-12">
+                    <div class="slider-content slider-content-breadcrumb text-center">
+                        <h1 style="color: #fff; font-weight: 700;">Inscreva-se já nos Nossos Cursos </h1><br />
+                        <nav class="text-center">
+                          <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Inscrever</li>
+                        </ol>
+                      </nav>
+                    </div>
+                </div>
+            </div>
+          </div>
+    </div>
+  </div>    
+
+  <!-- about start -->
+  <div id="about" class="about-area pt-100 pb-70">
+    <div class="container">
+        <div class="row">
+            <div class="column column-12">
+                <div class="about-title-section about-title-section-2">
+                    <h1>Formulario de Inscrição</h1>
+                </div>
+
+                {% with messages = get_flashed_messages()  %}
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                  {{ message }}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                  </button>
+                </div>
+              
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+
+                <div id="container-inscricao">
+
+                  <div id="forms">
+                      <form id="formCurso" method="post" class="form" action="{{url_for('add_inscricao')}}">
+                        
+                        <div class="form-group" style="display: none;">
+                          <input type="text" name="id">
+                        </div>
+
+                        Nome <br />
+                        <div class="form-group">
+                          <input type="text" placeholder="Nome Completo" name="nome" required> 
+                        </div>
+
+                        Email <br />
+                      <div class="form-group">   
+                          <input type="email" name="email" placeholder="Email" required >
+                      </div>
+
+                      Data de Nascimento <br />
+                      <div class="form-group">    
+                          <input type="date" placeholder="Data de Nascimento" name="dt_Nasc" required>
+
+                      </div>
+                      <br />
+                    <div class="form-group">    
+                          <select name="curso" required>
+                              <option selected>Selecione o curso que pretende</option>
+
+                              {% for row in list_curso %}
+                              <option value="{{row[0]}}">Categoria: {{row[1]}} Curso: {{row[2]}} </option>
+                              {% endfor %}
+
+                          </select>
+                    </div>     
+                          <br>
+                          <input type="submit" value="Enviar" name="btnEnviar">
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" value="Cancelar" name="btnCancelar" id="cancelar">
+                      </form>
+                  </div>
+              </div>
+              
+
+            </div>
+          </div>
+      </div>  
+</div>
+            
+<script type="text/javascript" src="static/js/jquery.js"></script> 
+<script type="text/javascript" src="static/js/jquery.validate.js"></script>  
+
+<script type="text/javascript">  
+
+$(document).ready(function(){
+
+  $('#formCurs').validate({ 
+
+    //regras e mensagens para os campos
+      rules: {  
+          nome: { required: true, minlength: 3, maxlength: 150 },  
+          email: { required: true, email: true, maxlength: 100 },
+          curso: { required: true}
+          
+      },  
+      messages: {  
+          nome: { 
+                   required: 'Informe o seu nome', 
+                   minlength: 'O Nome deve conter no mínimo 2 caracteres', 
+                   maxlength: 'O Nome deve conter no máximo 150 caracteres' 
+              },  
+
+          email: { 
+                    required: 'Informe o seu email', 
+                    email: 'Ops, informe um email válido',
+                    maxlength: 'O Email deve conter no máximo 100 caracteres' 
+                },
+          curso: { required: 'Selecione um Curso'}
+          
+      },
+  
+  //Monta a mensagem em uma caixa separada
+  errorLabelContainer: $('#mensagens'),
+
+       //função para enviar após a validação
+      submitHandler: function( form ){  
+          var dados = $( form ).serialize();
+          var formulario = $( form );
+
+          $.ajax({  
+              type: "POST",  
+              url: "#",  
+              data: dados,
+      success: function( data ){
+        alert( data );
+      }
+          });  
+
+          return false;  
+      }  
+  });  
+});
+
+</script>     
+{% endblock %}

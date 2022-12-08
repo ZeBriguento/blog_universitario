@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+{% block body %}
+
+  <div class="fundo-area">
+      <div class="single-slider slider-height slider-height-breadcrumb d-flex align-items-center justify-content-center" style="background-image: url(static/images/blog/blogFundo.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="column column-12">
+                    <div class="slider-content slider-content-breadcrumb text-center">
+                        <h1 style="color: #000; font-weight: 700;">Blog </h1><br />
+                        
+                    </div>
+                </div>
+            </div>
+          </div>
+    </div>
+  </div>    
+
+  <!-- about start -->
+  <div id="about" class="about-area pt-100 pb-70">
+    <div class="container">
+        <div class="row">
+            <div class="column column-12">
+                <div class="about-title-section about-title-section-2 mb-30">
+                    <h1>Blog</h1>
+                  
+                </div>
+            </div>
+          </div>
+      </div>  
+</div>
+
+<div id="courses" class="courses-area courses-bg-height" style="background-image: url(static/images/courses_bg.png);">
+<div class="container">
+
+  <div class="row">
+
+    <div class="column column-12">
+
+      <div class="carousel">
+    
+        {% for row in list_publicacao %}   
+    <!-- Listing Item -->
+    <div class="carousel-item">
+      <div class="listing-item">
+
+        <a href="/publicacoes/ver_Blog/{{row[0]}}" class="listing-img-container">
+
+          <img class="" src="/static/images/blog/{{row[4]}}" alt="Card image cap" style="height: 200px;">
+
+        </a>
+        
+        <div class="listing-content">
+
+          <div class="listing-title">
+            <h4 style="text-align: center;"><a href="/publicacoes/ver_Blog/{{row[0]}}" style="text-decoration: none;" >{{row[2]}}</a></h4>
+          
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+    <!-- Listing Item / End -->
+
+
+
+</div>
+<!-- Carousel / End -->
+</div>
+
+</div>
+</div>  
+</div>  
+        
+<script type="text/javascript"  src="/static/plugins/owl-carousel/jquery-3.4.1.min.js"></script> 
+
+<script type="text/javascript"  src="/static/plugins/owl-carousel/jquery-migrate-3.1.0.min.js"></script> 
+
+<script type="text/javascript"  src="/static/plugins/owl-carousel/owl.carousel.min.js"></script> 
+
+<script type="text/javascript"  src="/static/plugins/owl-carousel/custom.js"></script> 
+
+<script type="text/javascript"  src="/static/plugins/owl-carousel/tooltips.min.js"></script> 
+
+<script type="text/javascript"  src="/static/plugins/owl-carousel/chosen.min.js"></script> 
+
+
+{% endblock %}

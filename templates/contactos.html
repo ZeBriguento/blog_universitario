@@ -1,0 +1,166 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div class="fundo-area">
+      <div class="single-slider slider-height slider-height-breadcrumb d-flex align-items-center justify-content-center" style="background-image: url(static/images/contactos/contactosFundo.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="column column-12">
+                    <div class="slider-content slider-content-breadcrumb text-center">
+                        <h1 style="color: #000; font-weight: 700;">Fale Conosco </h1><br />
+                        
+                    </div>
+                </div>
+            </div>
+          </div>
+    </div>
+  </div>    
+
+  <div class="contactos-area">
+    <div class="container">
+        <div class="row">
+            <div class="column column-5">
+                <div class="contact-info-text">
+                    <div class="section-title">
+                        <div class="section-title-heading">
+                            <h1>Informação de Contactos</h1>
+                        </div>
+                        <div class="section-title-para">
+                            <p style="color: #000;">Se houver alguma dúvida acerca dos nossos
+                                serviços não hesite em nos contactar seremos rápido em responde-lo.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <ul>
+                        <li>
+                            <div class="contact-icon">
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h5>Ligue para Nós</h5>
+                                <span>+2449310001234</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">
+                                <i class="fa fa-inbox"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h5>Email</h5>
+                                <span>uluanda@gmail.com</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">
+                                <i class="fa fa-location-arrow"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h5>Localização</h5>
+                                <span>Talatona, Luanda, Angola</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="column column-7">
+                        
+                            <div class="column column-7">
+                                <div class="events-form-title">
+                                    <h2>Tem alguma Questão</h2>
+                                </div>
+                            </div>
+                       
+                        
+                <div id="container-inscricao">
+
+                    <div id="forms">
+
+                            <form id="form_contato" method="post" class="form"> 
+                                
+                                
+                                <input type="text" placeholder="Nome Completo" name="nome" required>
+                            
+                                <input type="email" placeholder="Email" name="email" required>
+                        
+                                <input placeholder="Assunto :" type="text" required>
+                           
+                                <textarea name="mensagem" id="mensagem"
+                                 placeholder="Deixe suas criticas e sugestoes aqui!"></textarea>
+                            
+                            <div class="column column-12">
+                                <div class="faq-form-btn events-form-btn">
+                                    <button class="theme-btn"><span class="btn-text">Enviar</span></button>
+                                </div>
+                            </div>
+                        
+                    </form>
+                </div>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="static/js/jquery.js"></script> 
+<script type="text/javascript" src="static/js/jquery.validate.js"></script>  
+
+   <script>
+        
+        $("#form_contato").validate({
+   rules : {
+         nome:{
+                required:true,
+                minlength:3
+         },
+         email:{
+                required:true
+         },
+         assunto:{
+                required:true,
+                minlength:5
+         },
+         mensagem:{
+                required:true
+         }                                 
+   },
+   messages:{
+         nome:{
+                required:"Por favor, informe seu nome",
+                minlength:"O nome deve ter pelo menos 3 caracteres"
+         },
+         email:{
+                required:"É necessário informar um email"
+         },
+         assunto:{
+                required:"É necessário informar um assunto",
+                minlength:"O assunto deve ter pelo menos 5 caracteres"
+         },
+         mensagem:{
+                required:"A mensagem não pode ficar em branco"
+         }      
+   },
+   
+   //função para enviar após a validação
+    submitHandler: function( form ){  
+    var dados = $( form ).serialize();
+var formulario = $( form );
+
+    $.ajax({  
+    type: "POST",  
+    url: "#",  
+    data: dados,
+    success: function( data ){
+        alert( data );
+    }
+    });  
+
+    return false;  
+}  
+   
+});
+        
+   </script>
+
+{% endblock %}

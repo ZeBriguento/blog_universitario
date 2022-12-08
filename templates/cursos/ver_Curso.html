@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+
+  
+<div class="blog-area">
+    
+        <div class="container">
+            <div class="row">
+                <div class="column column-7"> 
+
+                    <div id="container-noticia">
+                
+                    <div id="noticia-header">
+                        <h1> {{curso.titulo}} </h1>
+                        <img src="/static/images/cursos/{{curso.imagem}}">
+                        
+                    </div>
+                
+                    <div id="conteudo-noticia">
+                        
+                        {{curso.descricao | safe}}
+                       
+                
+                    </div>
+                
+                     <div id="comentario">
+                         
+                        <ul class="share-buttons">
+                            <li><a class="fb-share" href="#"><i class="fa fa-facebook"></i> Partilha</a></li>
+                            <li><a class="twitter-share" href="#"><i class="fa fa-twitter"></i> Tweet</a></li>
+                            <li><a class="gplus-share" href="#"><i class="fa fa-google-plus"></i> Partilha</a></li>
+                            <li><a class="instagram-share" href="#"><i class="fa fa-instagram"></i> Partilha</a></li>
+                        </ul>
+
+                     </div>
+                
+                    </div>
+                
+                </div>
+                
+                <div class="column column-5">
+                    <section id="ultimas-noticias">
+                        <h1>Últimos Cursos</h1>
+                        <ul>
+                            {% for row in list_curso %}
+                        
+                            <li><a href="/cursos/ver_Curso/{{row[0]}} ">{{row[2]}}</a> </li>
+                        
+                            {% endfor %}
+                        </ul>
+                    </section>
+                </div>
+
+        </div>       
+    </div> 
+</div>
+    {% endblock %}

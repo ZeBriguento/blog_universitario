@@ -1,0 +1,79 @@
+{% extends "layoutAdmin.html" %}
+{% block body %}
+
+  <div class="fundo-area">
+      <div class="single-slider slider-height d-flex align-items-center justify-content-center" style="background-image: url(static/images/slider_admin.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="column column-12">
+                    <div class="slider-content text-center">
+                        <h1 style="color: #fff; font-weight: 700;">Área de Administração <br> Cursos</h1>
+                        <p>Universidade de Luanda  </p>
+                        
+                    </div>
+                </div>
+            </div>
+          </div>
+    </div>
+  </div>    
+ 
+   <!-- about start -->
+   <div id="about" class="about-area">
+    <div class="container">
+        <div class="row">
+            <div class="about-title-section">
+               <h1>Cursos</h1>
+            </div>
+             <div class="col-md-12">
+
+              {% with messages = get_flashed_messages()  %}
+              {% if messages %}
+              {% for message in messages %}
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+                </button>
+              </div>
+            
+              {% endfor %}
+              {% endif %}
+              {% endwith %}
+
+                <div style="float: right;">
+                    <a href="/create_curso" class="btn btn-primary" > <span class="fa fa-plus"></span> adicionar</a>
+                </div> <br /><br />
+                        <table id="example1" class="table table-striped table-bordered" style="width:100%">
+                          <thead>
+                            <tr>
+                              <td>ID</td>
+                              <td>categoria</td>
+                              <td>Titulo</td>
+                              <td>Action</td>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            
+                            {% for row in list_curso %}
+                            <tr>
+                              <td>{{row[0]}}</td>
+                              <td>{{row[1]}}</td>
+                              <td>{{row[2]}}</td>
+                              <td width="130">
+                                <a href="/cursos/edit/{{row[0]}}" class="btn btn-secondary btn-sm">edit</a>
+                                <a href="/cursos/delete/{{row[0]}}" class="btn btn-danger btn-delete btn-sm">delete</a>
+                              </td>
+                            </tr>
+                            {% endfor %}
+                             
+                            
+                            
+                          </tbody>
+                        </table>
+                      </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- about end -->
+{% endblock %}
